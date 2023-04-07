@@ -44,7 +44,7 @@ class AccessToken extends Model
         $newToke->name= "access-token";
         $newToke->save();
         $last_id = $newToke->id;
-        $newtoken = Str::random(60)."**".base64_encode($id."-".$last_id);
+        $newtoken = Str::random(80)."**".base64_encode($id."-".$last_id);
         $newToke->token= hash('sha256', $newtoken); 
         $newToke->save();
         return $last_id."|".$newtoken;

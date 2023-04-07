@@ -40,7 +40,7 @@ Route::group(['prefix'=>'/customer-profile'],function(){
 Route::group(['prefix'=>'/user'],function(){
    Route::post('/login',[UserController::class,'Login']);
 }); 
-
+ 
 Route::group(['prefix'=>'/access','middleware' => 'securebusinessapp' ],function(){
    Route::get('/adminlogout',[UserController::class,'logout']);
    Route::post('/addproduct',[ProductController::class,'Addproduct']);
@@ -78,4 +78,3 @@ Route::group(['prefix'=>'/access','middleware' => 'securebusinessapp' ],function
 
    Route::post('/reduxAPItest',[BrandController::class,'reduxAPItest']); 
 }); 
-

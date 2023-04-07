@@ -8,7 +8,7 @@ use App\Http\Controllers\BusinessAccessTokenController;
 
 class SecureBusinessApp
 {
-    /** 
+    /**  
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -18,7 +18,7 @@ class SecureBusinessApp
     public $CheckBusinessAccess = null;
     public function __construct(){
         $this->CheckBusinessAccess = new BusinessAccessTokenController;
-    } 
+    }  
     public function handle(Request $request, Closure $next)
     {
         $check = $this->CheckBusinessAccess->AuthCheck($request);
