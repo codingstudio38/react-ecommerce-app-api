@@ -37,19 +37,10 @@ Route::group(['prefix'=>'/customer-profile'],function(){
    Route::get('/address-type',[CustomerController::class,'GetAddressType']);
 });  
 
-Route::group([],function(){//'prefix'=>'/user'
-//   Route::group(['prefix'=>'throttle:5,1'],function(){  });
-try {
+Route::group(['prefix'=>'/user'],function(){ 
   Route::middleware(['throttle:5,1'])->group(function () {
      Route::post('/login',[UserController::class,'Login']);
-});
-} catch (\Throwable $th) {
-   return response()->json(['message'=>$th->getMessage(),'status'=>429], 429);
-}
-
-
-  
-   
+  }); 
 }); 
  
 Route::group(['prefix'=>'/access','middleware' => 'securebusinessapp' ],function(){
